@@ -1,9 +1,14 @@
+import time
 import psutil
-import playsound
+import pygame
+import os
+import random
+
 
 processes = ['pycharm64.exe','cursor.exe','idea.exe', 'Clion.exe']
 
 # Buscamos el proceso en cuestion
+#
 def find_processes():
     for p in psutil.process_iter(['name', 'status']):
         if p.info['status'] == psutil.STATUS_RUNNING and p.info['name'] in processes:
@@ -11,11 +16,26 @@ def find_processes():
     return None
 
 
+path = r"C:\Users\Doia\Documents\musica"
 
-#find_processes()
-# for process in processes:
-    #    if psutil.pid_exists(process):
-    #for p in psutil.process_iter(['name', 'status']):
-     #   if p.info['status'] == psutil.STATUS_RUNNING:
-      #  if p.info['name'] == 'pycharm64.exe':
-       #     print(p.info['name'])
+def load_music (path):
+    #arroja un arreglo
+    choice= random.choice(os.listdir(path))
+    print(choice)
+    pygame.mixer.init()
+#Escogemos una canción al azar
+    pygame.mixer.music.load(path+"\\"+choice)
+    pygame.mixer.music.play()
+    while pygame.mixer.music.get_busy():
+        time.sleep(1)
+
+load_music(path)
+#todo juntar condicionales
+
+#todo ejecutar en segundo plano
+
+#todo ejecutar al encender la computadora
+
+#todo ejecutar solo una vez?
+
+
