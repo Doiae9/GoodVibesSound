@@ -14,8 +14,7 @@
 - Detección de IDEs: Monitorea los procesos del sistema en busca de IDEs populares (VS Code, IntelliJ, PyCharm, etc.).
 - Playlist de "Arranque": Al detectar un IDE, reproduce 2 canciones aleatorias desde una carpeta local.
 - Auto-detención: Después de que la segunda canción termina (o empieza, según la lógica), el script termina su ejecución (break) para liberar el 100% de los recursos del sistema.
-
-Ligero: Corre como un script de fondo sin consola visible (compilado con PyInstaller).
+- Ligero: Corre como un script de fondo sin consola visible (compilado con PyInstaller).
 
 ## ⚙️ Cómo Funciona
 El script utiliza un bucle principal que se ejecuta cada pocos segundos:
